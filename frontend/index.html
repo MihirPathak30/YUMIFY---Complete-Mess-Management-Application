@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yumify - Discover Nearby Messes</title>
+    <meta name="description" content="Discover nearby messes, view weekly menus, and pay for your meals in advance with Yumify." />
+    <meta name="author" content="Yumify" />
+
+    <meta property="og:title" content="Yumify - Discover Nearby Messes" />
+    <meta property="og:description" content="Discover nearby messes, view weekly menus, and pay for your meals in advance with Yumify." />
+    <meta property="og:type" content="website" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@Yumify" />
+
+    <!-- FORCE LIGHT MODE - Clear any stored dark mode and always start light -->
+    <script>
+      (function() {
+        // ALWAYS force light mode on first load - clear any dark mode
+        localStorage.removeItem('yumify-theme');
+        localStorage.setItem('yumify-theme', 'light');
+        
+        // Remove any existing theme classes and force light mode
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      })();
+    </script>
+    
+    <!-- Inline critical CSS for light mode -->
+    <style>
+      html, html.light { background-color: #F9FAF9; color: #064E3B; }
+      html.dark { background-color: #0B1F17; color: #ECFDF5; }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

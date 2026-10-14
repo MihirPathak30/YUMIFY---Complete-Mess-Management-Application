@@ -1,0 +1,365 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ========================================
+       YUMIFY PREMIUM LIGHT THEME
+       Customer-Focused: Clean, Calming, Trustworthy
+       ======================================== */
+    
+    /* Core Backgrounds - Warm White */
+    --background: 120 20% 98%;
+    --foreground: 160 50% 15%;
+
+    /* Cards - Pure White with depth */
+    --card: 0 0% 100%;
+    --card-foreground: 160 50% 15%;
+
+    /* Popovers */
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 50% 15%;
+
+    /* Primary Action Green - #16A34A */
+    --primary: 142 76% 36%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Soft sections */
+    --secondary: 145 60% 96%;
+    --secondary-foreground: 160 50% 20%;
+
+    /* Muted - Soft Grey */
+    --muted: 150 10% 93%;
+    --muted-foreground: 215 13% 44%;
+
+    /* Accent - Fresh Mint #6EE7B7 */
+    --accent: 157 72% 67%;
+    --accent-foreground: 160 50% 15%;
+
+    /* Destructive - Errors only */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 214 13% 91%;
+    --input: 214 13% 91%;
+    --ring: 142 76% 36%;
+
+    --radius: 0.75rem;
+
+    /* Sidebar - Deep Forest Green for professional look */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 160 50% 15%;
+    --sidebar-primary: 142 76% 36%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 145 60% 96%;
+    --sidebar-accent-foreground: 160 50% 20%;
+    --sidebar-border: 214 13% 91%;
+    --sidebar-ring: 142 76% 36%;
+
+    /* Custom Yumify Design Tokens */
+    --success: 142 76% 36%;
+    --success-foreground: 0 0% 100%;
+    --glow: 142 76% 42%;
+    --glass: 0 0% 100% / 0.95;
+    --gradient-start: 142 76% 36%;
+    --gradient-end: 157 72% 50%;
+    
+    /* Chat Bubbles */
+    --chat-assistant: 145 60% 94%;
+    --chat-user: 142 76% 36%;
+    
+    /* Data Visualization */
+    --chart-primary: 142 76% 36%;
+    --chart-secondary: 157 72% 67%;
+    --chart-tertiary: 145 60% 80%;
+    --chart-light: 145 60% 94%;
+  }
+
+  .dark {
+    /* ========================================
+       YUMIFY PREMIUM DARK THEME
+       Dashboard-Focused: Deep, Rich, Professional
+       ======================================== */
+    
+    /* Core Backgrounds - Deep Forest #0B1F17 */
+    --background: 155 40% 8%;
+    --foreground: 145 60% 94%;
+
+    /* Cards - Slightly elevated #102A21 */
+    --card: 155 45% 11%;
+    --card-foreground: 145 60% 94%;
+
+    /* Popovers */
+    --popover: 155 45% 9%;
+    --popover-foreground: 145 60% 94%;
+
+    /* Primary - Bright CTA Green #22C55E */
+    --primary: 142 71% 45%;
+    --primary-foreground: 155 40% 8%;
+
+    /* Secondary */
+    --secondary: 155 40% 14%;
+    --secondary-foreground: 145 60% 90%;
+
+    /* Muted */
+    --muted: 155 35% 16%;
+    --muted-foreground: 157 25% 55%;
+
+    /* Accent - Fresh Mint */
+    --accent: 157 72% 67%;
+    --accent-foreground: 155 40% 8%;
+
+    /* Destructive */
+    --destructive: 0 65% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Borders & Inputs */
+    --border: 155 35% 18%;
+    --input: 155 35% 18%;
+    --ring: 142 71% 45%;
+
+    /* Sidebar - Deep Forest Green #064E3B */
+    --sidebar-background: 160 78% 16%;
+    --sidebar-foreground: 145 60% 94%;
+    --sidebar-primary: 142 71% 45%;
+    --sidebar-primary-foreground: 155 40% 8%;
+    --sidebar-accent: 155 40% 20%;
+    --sidebar-accent-foreground: 145 60% 90%;
+    --sidebar-border: 155 35% 20%;
+    --sidebar-ring: 142 71% 45%;
+
+    /* Custom Yumify Design Tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 155 40% 8%;
+    --glow: 142 71% 50%;
+    --glass: 155 45% 11% / 0.9;
+    --gradient-start: 142 71% 40%;
+    --gradient-end: 157 72% 55%;
+    
+    /* Chat Bubbles */
+    --chat-assistant: 155 45% 14%;
+    --chat-user: 142 71% 40%;
+    
+    /* Data Visualization */
+    --chart-primary: 142 71% 45%;
+    --chart-secondary: 157 72% 67%;
+    --chart-tertiary: 155 45% 25%;
+    --chart-light: 155 35% 20%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+@layer utilities {
+  /* Premium Glass Effects */
+  .glass {
+    backdrop-filter: blur(20px);
+    background: hsl(var(--glass));
+    @apply border border-border/50;
+  }
+
+  .glass-strong {
+    backdrop-filter: blur(30px);
+    background: hsl(var(--glass));
+    @apply border border-border/60;
+  }
+
+  /* Glow Effects */
+  .glow {
+    box-shadow: 0 0 40px hsl(var(--glow) / 0.2);
+  }
+
+  .glow-sm {
+    box-shadow: 0 0 20px hsl(var(--glow) / 0.15);
+  }
+
+  .glow-lg {
+    box-shadow: 0 0 60px hsl(var(--glow) / 0.25);
+  }
+
+  /* Premium Gradients */
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--gradient-start)), hsl(var(--gradient-end)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-chart {
+    background: linear-gradient(180deg, hsl(var(--chart-primary) / 0.3), hsl(var(--chart-light)));
+  }
+
+  /* Premium Shadows - Clean & Elegant */
+  .shadow-soft {
+    box-shadow: 0 4px 12px hsl(var(--foreground) / 0.06);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 12px 40px hsl(var(--foreground) / 0.08), 0 4px 12px hsl(var(--foreground) / 0.04);
+  }
+
+  .shadow-premium {
+    box-shadow: 
+      0 4px 6px -1px hsl(var(--foreground) / 0.05),
+      0 2px 4px -2px hsl(var(--foreground) / 0.03),
+      0 0 0 1px hsl(var(--border) / 0.5);
+  }
+
+  /* Chat Bubble Styles */
+  .chat-bubble-assistant {
+    background: hsl(var(--chat-assistant));
+  }
+
+  .chat-bubble-user {
+    background: hsl(var(--chat-user));
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Smooth Animations */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  .animate-pulse-soft {
+    animation: pulse-soft 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+  }
+
+  .animate-glow {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px hsl(var(--glow) / 0.15); }
+    50% { box-shadow: 0 0 35px hsl(var(--glow) / 0.25); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.5s ease-out;
+  }
+
+  @keyframes fade-in-up {
+    from { 
+      opacity: 0; 
+      transform: translateY(16px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-in {
+    animation: slide-in 0.3s ease-out;
+  }
+
+  @keyframes slide-in {
+    from { 
+      opacity: 0;
+      transform: translateX(-8px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.2s ease-out;
+  }
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Micro-interactions */
+  .hover-scale {
+    @apply transition-transform duration-200;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  .hover-lift {
+    @apply transition-all duration-200;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px hsl(var(--foreground) / 0.1);
+  }
+
+  /* Success Check Animation */
+  .animate-check {
+    animation: check-draw 0.5s ease-out forwards;
+  }
+
+  @keyframes check-draw {
+    from {
+      stroke-dashoffset: 100;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Recording Pulse */
+  .animate-recording {
+    animation: recording-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes recording-pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 hsl(var(--destructive) / 0.7);
+    }
+    50% {
+      box-shadow: 0 0 0 10px hsl(var(--destructive) / 0);
+    }
+  }
+}
